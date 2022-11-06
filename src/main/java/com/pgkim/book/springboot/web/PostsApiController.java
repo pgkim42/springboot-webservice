@@ -1,11 +1,14 @@
 package com.pgkim.book.springboot.web;
 
 import com.pgkim.book.springboot.service.PostsService;
+import com.pgkim.book.springboot.web.dto.PostsListResponseDto;
 import com.pgkim.book.springboot.web.dto.PostsResponseDto;
 import com.pgkim.book.springboot.web.dto.PostsSaveRequestDto;
 import com.pgkim.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -24,8 +27,12 @@ public class PostsApiController {
     }
 
     @GetMapping("/api/v1/posts/{id}")
-    public PostsResponseDto findById (@PathVariable Long id) {
+    public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
     }
 
+    @GetMapping("/api/v1/posts/list")
+    public List<PostsListResponseDto> findAll() {
+        return postsService.findAllDesc();
+    }
 }

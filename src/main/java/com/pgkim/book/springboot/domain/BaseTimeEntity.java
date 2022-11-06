@@ -1,4 +1,4 @@
-package com.pgkim.book.springboot.domain.posts;
+package com.pgkim.book.springboot.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,5 +18,5 @@ public abstract class BaseTimeEntity {
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private LocalDateTime modifedDate;
+    private LocalDateTime modifiedDate;
 }
